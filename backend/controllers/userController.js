@@ -2,9 +2,9 @@ const userModel = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const val = require("../validators/validation");
 
-//_Create User_//
+//_ Sign Up_//
 
-const createUser = async function (req, res) {
+const signup = async function (req, res) {
     try {
       let requestBody = req.body;
       let { title, name, phone, email, password, address } = requestBody;
