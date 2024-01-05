@@ -6,10 +6,8 @@ const bookSchema = new mongoose.Schema(
     title: { type: String, required: true, unique: true },
     excerpt: { type: String, required: true },
     userId: { type: ObjectId, required: true, ref: "User" },
-    ISBN: { type: String, required: true, unique: true },
-    bookCover: { type: String, require: true, trim: true },
-    category: { type: String, required: true },
-    subcategory: { type: String, required: true },
+    bookImage: {type: String, required: true},
+    bookPurchaseLink: {type: String, required: true},
     deletedAt: { type: Date },
     isDeleted: { type: Boolean, default: false },
     releasedAt: { type: Date, required: true }, //, format("YYYY-MM-DD")
