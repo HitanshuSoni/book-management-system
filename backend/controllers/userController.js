@@ -207,5 +207,5 @@ const signup = async function (req, res) {
     }
   };
   
-  module.exports = { createUser, login };
+  module.exports = { signup, login };
   
