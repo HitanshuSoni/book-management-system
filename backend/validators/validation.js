@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
 
-const isvalidISBN = function (isbn) {
-  return /^(97[8|9]-)([0-9]{10,13}+)$/.test(isbn);
-};
 
 const isValidTitle = function (title) {
   return ["Mr", "Mrs", "Miss"].indexOf(title) !== -1;
@@ -55,7 +52,6 @@ const isValidDate = function (Date) {
 };
 
 module.exports = {
-  isvalidISBN,
   isValidTitle,
   isValidPassword,
   isvalidPincode,
