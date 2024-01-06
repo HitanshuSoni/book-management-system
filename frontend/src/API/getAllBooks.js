@@ -1,4 +1,4 @@
-import axiosInstance from '../../axiosInstance';
+import axiosInstance from '../axiosInstance';
 
 const getAllBooks = async() => {
     const response = await axiosInstance.get(
