@@ -26,6 +26,12 @@ router.post(
     middleware.authentication,
     middleware.authorization,
     bookController.unPublishBook
+  ); // unpublish book
+
+  router.get(
+    "/api/books/user",
+    middleware.authentication,
+    bookController.getBooksByUser
   )
 
 module.exports = router;

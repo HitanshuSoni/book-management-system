@@ -66,7 +66,7 @@ const publishBook = async function (req, res) {
     }
   };
 
-  //_getBookByTitle_
+//_getBookByTitle_
 const getBookByTitle = async function (req, res) {
     try {
       let title = req.query.title;
@@ -84,7 +84,7 @@ const getBookByTitle = async function (req, res) {
     }
   };
 
-  //_deleteBook_
+//_unPublish Book_
 
 const unPublishBook = async function (req, res) {
   try {
@@ -105,4 +105,24 @@ const unPublishBook = async function (req, res) {
   }
 };
 
-  module.exports = { publishBook, getBookByTitle, unPublishBook };
+//_getBookByUser_
+
+const getBooksByUser = async function (req, res) {
+  
+  try {
+    let userId = req.userLoggedIn.userId;
+    let books = await bookModel
+      .find({ userId: userId })
+    if (books.length == 0)
+      return res.status(404).send({ status: false, message: "data not found" });
+
+    return res
+      .status(200)
+      .send({ status: true, message: "Success", data: books });
+  } catch (err) {
+    return res.status(500).send({ status: false, error: err.message });
+  }
+};
+
+
+module.exports = { publishBook, getBookByTitle, unPublishBook, getBooksByUser };
