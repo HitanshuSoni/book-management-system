@@ -1,9 +1,8 @@
-import axios from 'axios';
-import { BASE_URL } from "./constants";
+import axiosInstance from '../../axiosInstance';
 
 const getAllBooks = async() => {
-    const response = await axios.get(
-        `${BASE_URL}/api/books/published`,
+    const response = await axiosInstance.get(
+        `/api/books/published`,
       );
       const { data } = response.data.data;
     
