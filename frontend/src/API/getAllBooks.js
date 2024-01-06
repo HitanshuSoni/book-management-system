@@ -4,7 +4,7 @@ const getAllBooks = async() => {
     const response = await axiosInstance.get(
         `/api/books/published`,
       );
-      const { data } = response.data.data;
+      const { data } = response.data;
     
       return data;
 }

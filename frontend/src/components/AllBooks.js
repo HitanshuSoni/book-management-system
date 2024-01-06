@@ -10,7 +10,9 @@ function AllBooks() {
     // Fetch all books when the component mounts
     const fetchBooks = async () => {
       const booksData = await getAllBooks();
+      console.log(booksData.data);
       setBooks(booksData);
+    //   console.log(books)
     };
 
     fetchBooks();

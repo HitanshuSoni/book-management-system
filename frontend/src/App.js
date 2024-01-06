@@ -5,11 +5,12 @@ import AllBooks from './components/AllBooks';
 
 function App() {
   return (
-    <Router>
-    <Routes>
-      <Route path="/" exact component={AllBooks} />
-    </Routes>
-  </Router>
+  //   <Router>
+  //   <Routes>
+  //     <Route path="/all-books" exact component={AllBooks} />
+  //   </Routes>
+  // </Router>
+  <AllBooks/>
   );
 }
 
