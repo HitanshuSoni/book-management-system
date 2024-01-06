@@ -208,7 +208,7 @@ const signup = async function (req, res) {
       res.setHeader("x-api-key", token);
       return res
         .status(201)
-        .send({ status: true, message: "Success", data: token });
+        .send({ status: true, message: "Success", resp: {token: token, userData:userData} });
     } catch (err) {
       return res.status(500).send({ status: false, error: err.message });
     }
