@@ -2,6 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const route = require("./routes/routes");
 const multer = require("multer");
+require('dotenv').config();
+
+const mongoUserName = process.env.MONGO_USERNAME
+const mongoPassword = process.env.MONGO_PASSWORD
 
 const app = express();
 app.use(express.json()); //bson
@@ -10,7 +14,7 @@ const port = 3000;
 
 mongoose
   .connect(
-    "mongodb+srv://hitanshusoni10:charmendar123@bmscluster.yngdopl.mongodb.net/?retryWrites=true&w=majority",
+    `mongodb+srv://${mongoUserName}:${mongoPassword}@bmscluster.yngdopl.mongodb.net/?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
     }
