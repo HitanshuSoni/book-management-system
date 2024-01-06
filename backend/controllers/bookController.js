@@ -47,12 +47,12 @@ const createBook = async function (req, res) {
           .status(400)
           .send({ status: false, message: "book purchase link is mandatory" });
           
-      if (!v.isValidSpace(releasedAt))
+      if (!val.isValidSpace(releasedAt))
         return res
           .status(400)
           .send({ status: false, message: "releasedAt is mandatory" });
   
-      if (!v.isValidDate(releasedAt))
+      if (!val.isValidDate(releasedAt))
         return res
           .status(400)
           .send({ status: false, message: "releasedAt should be date" });
