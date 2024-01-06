@@ -13,7 +13,7 @@ app.use(express.json()); //bson
 app.use(multer().any());
 
 // Enable CORS for all routes
-app.use(cors());
+app.use(cors({origin:'*'}));
 
 const port = 3000;
 
