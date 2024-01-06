@@ -124,5 +124,22 @@ const getBooksByUser = async function (req, res) {
   }
 };
 
+//_getAllBooks_
 
-module.exports = { publishBook, getBookByTitle, unPublishBook, getBooksByUser };
+const getAllBooks = async function (req, res) {
+  
+  try {
+    let books = await bookModel
+      .find({ isDeleted: false })
+    if (books.length == 0)
+      return res.status(404).send({ status: false, message: "data not found" });
+
+    return res
+      .status(200)
+      .send({ status: true, message: "Success", data: books });
+  } catch (err) {
+    return res.status(500).send({ status: false, error: err.message });
+  }
+};
+
+module.exports = { publishBook, getBookByTitle, unPublishBook, getBooksByUser, getAllBooks };

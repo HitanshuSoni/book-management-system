@@ -32,6 +32,11 @@ router.post(
     "/api/books/user",
     middleware.authentication,
     bookController.getBooksByUser
-  )
+  ); // get all books by current user
+
+  router.get(
+    "/api/books/published",
+    bookController.getAllBooks
+  ) // get all books
 
 module.exports = router;
