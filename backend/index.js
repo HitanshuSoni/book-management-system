@@ -14,13 +14,14 @@ app.use(multer().any());
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: 'https://bms-frontend-hfm3.onrender.com/', // Consider specifying exact domains in production
+  origin: 'https://bms-frontend-hfm3.onrender.com/', // Allows access from any origin, adjust in production
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 
-const port = 3000;
+const port = 3005;
 
 mongoose
   .connect(
