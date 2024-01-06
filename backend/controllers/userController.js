@@ -1,6 +1,10 @@
+const bcrypt = require('bcrypt');
 const userModel = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const val = require("../validators/validation");
+
+const saltRounds = 10;
+
 
 //_ Sign Up_//
 
@@ -133,6 +137,10 @@ const signup = async function (req, res) {
             message: "valid pincode is mandatory of 6 digit",
           });
   
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+          
+      requestBody.password = hashedPassword;
+
       let userData = await userModel.create(requestBody);
       return res
         .status(201)
@@ -180,14 +188,13 @@ const signup = async function (req, res) {
           .send({ status: false, message: "Enter valid password" });
   
       let userData = await userModel.findOne({
-        email: email,
-        password: password,
+        email: email
       });
-      if (!userData)
-        return res
-          .status(404)
-          .send({ status: false, message: "user or password is incorrect" });
-  
+      if (!userData || !(await bcrypt.compare(password, userData.password)))
+      return res
+        .status(404)
+        .send({ status: false, message: "user or password is incorrect" });
+
       //token creation
       let token = jwt.sign(
         {
