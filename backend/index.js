@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const route = require("./routes/routes");
 const multer = require("multer");
+const cors = require("cors");
 require('dotenv').config();
 
 const mongoUserName = process.env.MONGO_USERNAME
@@ -10,6 +11,10 @@ const mongoPassword = process.env.MONGO_PASSWORD
 const app = express();
 app.use(express.json()); //bson
 app.use(multer().any());
+
+// Enable CORS for all routes
+app.use(cors());
+
 const port = 3000;
 
 mongoose
