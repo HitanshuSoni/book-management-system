@@ -68,20 +68,41 @@ const publishBook = async function (req, res) {
 
   //_getBookByTitle_
 const getBookByTitle = async function (req, res) {
-  try {
-    let title = req.query.title;
-    let books = await bookModel
-      .find({ title: { $regex: title, $options: 'i' } })
-      .sort({ title: 1 });
-    if (books.length == 0)
-      return res.status(404).send({ status: false, message: "data not found" });
+    try {
+      let title = req.query.title;
+      let books = await bookModel
+        .find({ title: { $regex: title, $options: 'i' } })
+        .sort({ title: 1 });
+      if (books.length == 0)
+        return res.status(404).send({ status: false, message: "data not found" });
 
+      return res
+        .status(200)
+        .send({ status: true, message: "Success", data: books });
+    } catch (err) {
+      return res.status(500).send({ status: false, error: err.message });
+    }
+  };
+
+  //_deleteBook_
+
+const unPublishBook = async function (req, res) {
+  try {
+    const bookId = req.params.bookId;
+    let unpublishedBook = await bookModel.findByIdAndUpdate(
+      bookId,
+      { isDeleted: true, deletedAt: new Date() },
+      { new: true }
+    );
+    if (!unpublishedBook) {
+      return res.status(404).json({ message: 'Book not found' });
+    }
     return res
       .status(200)
-      .send({ status: true, message: "Success", data: books });
+      .send({ status: true, message: "Successfully deleted" });
   } catch (err) {
-    return res.status(500).send({ status: false, error: err.message });
+    return res.status(500).send({ status: false, message: err.message });
   }
 };
 
-  module.exports = { publishBook, getBookByTitle };
+  module.exports = { publishBook, getBookByTitle, unPublishBook };

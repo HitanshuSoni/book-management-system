@@ -21,4 +21,11 @@ router.post(
     bookController.getBookByTitle
   ); // get book by title
 
+  router.put(
+    "/api/books/unpublish/:bookId",
+    middleware.authentication,
+    middleware.authorization,
+    bookController.unPublishBook
+  )
+
 module.exports = router;
