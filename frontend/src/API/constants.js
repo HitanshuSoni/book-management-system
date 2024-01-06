@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://bms-backend-bcvy.onrender.com'
