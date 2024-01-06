@@ -5,15 +5,20 @@ const bookController = require("../controllers/bookController");
 const middleware = require("../middleware/middleware");
 
 
-router.post("/signup", userController.signup); //signup user
+router.post("/api/auth/signup", userController.signup); //signup user
 
-router.post("/login", userController.login); //login user
+router.post("/api/auth/login", userController.login); //login user
 
 router.post(
-    "/books/publish",
+    "/api/books/publish",
     middleware.authentication,
     middleware.authorization,
     bookController.publishBook
   ); //create book
+
+  router.get(
+    "/api/books/search", 
+    bookController.getBookByTitle
+  ); // get book by title
 
 module.exports = router;

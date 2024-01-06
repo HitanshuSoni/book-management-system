@@ -66,4 +66,22 @@ const publishBook = async function (req, res) {
     }
   };
 
-  module.exports = { publishBook };
+  //_getBookByTitle_
+const getBookByTitle = async function (req, res) {
+  try {
+    let title = req.query.title;
+    let books = await bookModel
+      .find({ title: { $regex: title, $options: 'i' } })
+      .sort({ title: 1 });
+    if (books.length == 0)
+      return res.status(404).send({ status: false, message: "data not found" });
+
+    return res
+      .status(200)
+      .send({ status: true, message: "Success", data: books });
+  } catch (err) {
+    return res.status(500).send({ status: false, error: err.message });
+  }
+};
+
+  module.exports = { publishBook, getBookByTitle };
