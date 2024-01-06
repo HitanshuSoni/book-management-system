@@ -13,7 +13,7 @@ router.post(
     "/books/publish",
     middleware.authentication,
     middleware.authorization,
-    bookController.createBook
+    bookController.publishBook
   ); //create book
 
 module.exports = router;

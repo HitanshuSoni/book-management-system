@@ -1,8 +1,8 @@
 const bookModel = require("../models/booksModel");
 const val = require("../validators/validation");
 
-//_createBook_
-const createBook = async function (req, res) {
+//_publishBook_
+const publishBook = async function (req, res) {
     try {
       let requestBody = req.body;
       if (!val.isvalidRequest(requestBody))
@@ -66,4 +66,4 @@ const createBook = async function (req, res) {
     }
   };
 
-  module.exports = { createBook };
+  module.exports = { publishBook };
