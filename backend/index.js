@@ -14,7 +14,7 @@ app.use(multer().any());
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: '*', // Consider specifying exact domains in production
+  origin: 'https://bms-frontend-hfm3.onrender.com/', // Consider specifying exact domains in production
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
