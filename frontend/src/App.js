@@ -1,16 +1,17 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-
-import AllBooks from './components/AllBooks';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import AllBooks from './components/AllBooks'; // Import the AllBooks component
 
 function App() {
   return (
-  //   <Router>
-  //   <Routes>
-  //     <Route path="/all-books" exact component={AllBooks} />
-  //   </Routes>
-  // </Router>
-  <AllBooks/>
+    <Router>
+      <div>
+
+        <Routes>
+          <Route path="/" element={<AllBooks />} /> {/* Route for AllBooks component */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

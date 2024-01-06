@@ -1,4 +1,4 @@
-const IS_TEST = false;
+const IS_TEST = true;
 export const BASE_URL = IS_TEST ? 'http://localhost:3005' : 'https://bms-backend-bcvy.onrender.com'
 
 
