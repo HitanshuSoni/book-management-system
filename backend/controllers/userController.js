@@ -102,7 +102,7 @@ const signup = async function (req, res) {
           .send({
             status: false,
             message:
-              "Enter valid password and password length should be minimum 8-15 characters",
+              "Enter valid password and password length should be minimum 8-15 characters and 1 numeric and 1 Upper and 1 Lower case and 1 special char needed",
           });
   
       if (!val.isValidSpace(address))
