@@ -28,9 +28,8 @@ function AllBooks() {
   
   return (
     <>
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '10vh' }}>
-        <h1 style={{ fontSize: '2.5rem', color: '#333', textAlign: 'center' }}>Book Management System</h1>
-     </div>
+        <h1 style={{ display: 'flex', fontSize: '2.5rem', color: '#333', textAlign: 'center' , marginTop:'auto'}}>Book Management System</h1>
+     
     <SearchBox onSearch={updateBooksBySearch} />
   <BookCard initialBooks={books} isHomePage={false}/> 
   </>
