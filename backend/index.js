@@ -14,9 +14,9 @@ app.use(multer().any());
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: 'https://bms-frontend-hfm3.onrender.com', // Allows access from any origin, adjust in production
+  origin: 'http://localhost:https://bms-frontend-hfm3.onrender.co', // Allows access from any origin, adjust in production
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-api-key'],
   credentials: true
 }));
 
