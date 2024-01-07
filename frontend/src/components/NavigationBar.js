@@ -45,16 +45,16 @@ const NavigationBar = () => {
     { text: 'All Books', path: '/' },
     { text: 'My Books', path: '/my-books' },
     { text: 'Publish Book', path: '/publish-book' },
-    { text: 'Sign Up', path: '/signup' },
+    { text: 'Sign Up', path: '/signup', showWhenLoggedIn: false },
     { text: 'Log In', path: '/login', showWhenLoggedOut: true }
   ];
   
   const drawer = (
     <div>
       <List>
-        {menuItems.map(({ text, path, showWhenLoggedOut }) => {
+        {menuItems.map(({ text, path, showWhenLoggedOut, showWhenLoggedIn }) => {
         // Hide 'Log In' when the user is logged in
-        if (isLoggedIn && showWhenLoggedOut) return null;
+        if ((isLoggedIn && showWhenLoggedOut) || (!isLoggedIn && showWhenLoggedIn === false)) return null;
 
         return (
         <ListItem button key={text} component={Link} to={path}>
@@ -88,7 +88,7 @@ const NavigationBar = () => {
                 <Button color="inherit" component={Link} to="/" style={{ margin: '0 10px' }}>All Books</Button>
                 <Button color="inherit" component={Link} to="/my-books" style={{ margin: '0 10px' }}>My Books</Button>
                 <Button color="inherit" component={Link} to="/publish-book" style={{ margin: '0 10px' }}>Publish Book</Button>
-                <Button color="inherit" component={Link} to="/signup" style={{ margin: '0 10px' }}>Sign Up</Button>
+                {!isLoggedIn? (<Button color="inherit" component={Link} to="/signup" style={{ margin: '0 10px' }}>Sign Up</Button>):<></>}
                 {isLoggedIn ? (
                 <Button style={{ backgroundColor: 'red', color: 'white', margin: '0 10px' }} onClick={handleSignOut}>Sign Out</Button>
                 ) : (
