@@ -12,13 +12,13 @@ const styles = {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      height: '100vh', // You can adjust the height as needed
+      height: '100vh',
     },
     form: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: '16px', // Adjust the gap/space between fields as needed
+      gap: '16px',
     },
   };
 
@@ -69,7 +69,7 @@ function SignUp() {
         // Clear the error state
         setError('');
         setSuccess(true)
-        // Redirect or show success message
+        // Redirect
         window.location.href = '/login';
       } else {
         setError('An error occurred. Please try again later.');

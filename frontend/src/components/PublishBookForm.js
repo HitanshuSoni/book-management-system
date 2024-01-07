@@ -27,13 +27,13 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh', // You can adjust the height as needed
+    height: '100vh',
   },
   form: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    gap: '16px', // Adjust the gap/space between fields as needed
+    gap: '16px',
   },
   button: {
     backgroundColor: 'green',
