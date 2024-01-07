@@ -112,7 +112,7 @@ const getBooksByUser = async function (req, res) {
   try {
     let userId = req.userLoggedIn.userId;
     let books = await bookModel
-      .find({ userId: userId })
+      .find({ userId: userId, isDeleted: false })
     if (books.length == 0)
       return res.status(404).send({ status: false, message: "data not found" });
 
