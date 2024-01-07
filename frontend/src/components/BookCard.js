@@ -69,15 +69,18 @@ useEffect(() => {
                 />
               </div>
               <CardContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <Typography variant="h6" gutterBottom>
+                
+                <Typography variant="h4" gutterBottom>
                   {book.title}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  {book.excerpt}
+
+                <Typography variant="body1" sx={{ color: 'text.primary', mb: 1 }}> {/* Adjusted variant and used sx prop */}
+                    Excerpt: {book.excerpt}
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: 'text.primary' }}> {/* Adjusted variant */}
+                    User ID: {book.userId}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  User ID: {book.userId}
-                </Typography>
+
                 <a href={book.bookPurchaseLink} target="_blank" rel="noopener noreferrer">
                   <Button variant="contained" color="primary">
                     Buy Now
