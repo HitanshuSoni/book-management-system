@@ -8,13 +8,13 @@ function MyBooks() {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
-  const [userId, setUserId] = useState(''); // Declare userId outside of useEffect
+  const [userId, setUserId] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     let userData = localStorage.getItem('userData');
     userData = JSON.parse(userData);
-    const userId = userData._id; // Set userId using setUserId
+    const userId = userData._id;
     setUserId(userId);
 
     const fetchData = async () => {

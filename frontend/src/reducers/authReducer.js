@@ -1,4 +1,3 @@
-// authReducer.js
 
 import { LOGIN_SUCCESS } from '../actions/authAction';
 
