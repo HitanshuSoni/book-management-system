@@ -75,10 +75,10 @@ useEffect(() => {
                 </Typography>
 
                 <Typography variant="body1" sx={{ color: 'text.primary', mb: 1 }}> {/* Adjusted variant and used sx prop */}
-                    Excerpt: {book.excerpt}
+                    {book.excerpt}
                     </Typography>
                     <Typography variant="body1" sx={{ color: 'text.primary' }}> {/* Adjusted variant */}
-                    User ID: {book.userId}
+                    Publisher ID: {book.userId}
                 </Typography>
 
                 <a href={book.bookPurchaseLink} target="_blank" rel="noopener noreferrer">
