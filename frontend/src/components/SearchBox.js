@@ -19,6 +19,7 @@ const SearchBox = ({onSearch}) => {
         variant="outlined" 
         value={searchQuery} 
         onChange={handleInputChange}
+        fullWidth
         sx={{ marginRight: '10px' }} // Adding some space between the TextField and Button
       />
       <Button 
