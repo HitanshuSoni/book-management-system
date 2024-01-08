@@ -45,16 +45,16 @@ const NavigationBar = () => {
     { text: 'All Books', path: '/' },
     { text: 'My Books', path: '/my-books' },
     { text: 'Publish Book', path: '/publish-book' },
-    { text: 'Sign Up', path: '/signup', showWhenLoggedIn: false },
+    { text: 'Sign Up', path: '/signup', showWhenLoggedOut: true },
     { text: 'Log In', path: '/login', showWhenLoggedOut: true }
   ];
   
   const drawer = (
     <div>
       <List>
-        {menuItems.map(({ text, path, showWhenLoggedOut, showWhenLoggedIn }) => {
+        {menuItems.map(({ text, path, showWhenLoggedOut }) => {
         // Hide 'Log In' when the user is logged in
-        if ((isLoggedIn && showWhenLoggedOut) || (!isLoggedIn && showWhenLoggedIn === false)) return null;
+        if ((isLoggedIn && showWhenLoggedOut)) return null;
 
         return (
         <ListItem button key={text} component={Link} to={path}>
@@ -124,7 +124,7 @@ const NavigationBar = () => {
                 <>
                   <Typography variant="body1">Name: {userData.name}</Typography>
                   <Typography variant="body1">Email: {userData.email}</Typography>
-                  {/* Add more user data fields as needed */}
+                  
                 </>
               )}
               <Button onClick={handleClose} color="primary">Close</Button>
