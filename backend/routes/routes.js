@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
 const bookController = require("../controllers/bookController");
+const healthCheckController = require("../controllers/healthCheckController");
 const middleware = require("../middleware/middleware");
 
 
@@ -38,5 +39,10 @@ router.post(
     "/api/books/published",
     bookController.getAllBooks
   ) // get all books
+
+  router.get(
+    "/api/health-checkup",
+    healthCheckController.checkHealth
+  ) // check server health
 
 module.exports = router;
